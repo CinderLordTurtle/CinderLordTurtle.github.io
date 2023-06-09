@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body{background-image: url("bg.png");}
+			
+			.runeA{background:url(runes.png) 0px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeB{background:url(runes.png) -50px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeC{background:url(runes.png) -100px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeD{background:url(runes.png) -150px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeE{background:url(runes.png) -200px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeF{background:url(runes.png) -250px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeG{background:url(runes.png) -300px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeH{background:url(runes.png) -350px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeI{background:url(runes.png) -400px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeJ{background:url(runes.png) -450px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeK{background:url(runes.png) -500px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeL{background:url(runes.png) -550px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeM{background:url(runes.png) -600px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeN{background:url(runes.png) -650px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeO{background:url(runes.png) -700px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeP{background:url(runes.png) -750px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeQ{background:url(runes.png) -800px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeR{background:url(runes.png) -850px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeS{background:url(runes.png) -900px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeT{background:url(runes.png) -950px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeU{background:url(runes.png) -1000px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeV{background:url(runes.png) -1050px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeW{background:url(runes.png) -1100px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeX{background:url(runes.png) -1150px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeY{background:url(runes.png) -1200px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.runeZ{background:url(runes.png) -1250px 0; width:50px; height:60px; image-rendering: pixelated;}
+			.rune{background:url(runes.png) -1300px 0; width:50px; height:60px; image-rendering: pixelated;}
+			
+			img.noitaRune:hover{cursor:pointer;}
+			.noitaRune{background-color:orange;}
+			.noitaText{background-color:orange;}
+			.noitaRunePixel{width:20px; height:20px;}
+			.noitaRunePixel.unchecked{background-color: #a5c6d2; width:20px; height:20px;}
+			.noitaRunePixel.checked{background-color: #e6ff14; width:20px; height:20px;}
+			#translator td {padding: 0; margin: 0; border:1px solid #64a8c6;}
+		</style>
+	</head>
+	<body>
+
+	<h1>DD's Noitranslator</h1>
+	<div style="
+			width: 100%;
+			text-align: center;">
+		
+		<div style="display: inline-block;
+			margin: 0 auto;
+			padding: 3px;">
+			
+			
+			
+			<p>Runes to Text : <input id="RunesToText" type="text";> <button id="getRuneDrawing">insert from drawing</button></p>
+			
+			<div>Draw the rune:
+				<table id="translator" style="margin: 0 auto;  border-collapse: collapse;">
+					<tr>
+						<td><div id="A1" class="noitaRunePixel checked"></div></td>
+						<td><div id="A2" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="A3" class="noitaRunePixel checked"></div></td>
+						<td><div id="A4" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="A5" class="noitaRunePixel unchecked"></div></td>
+					</tr>
+					<tr>
+						<td><div id="B1" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="B2" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="B3" class="noitaRunePixel checked"></div></td>
+						<td><div id="B4" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="B5" class="noitaRunePixel unchecked"></div></td>
+					</tr>
+					<tr>
+						<td><div id="C1" class="noitaRunePixel checked"></div></td>
+						<td><div id="C2" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="C3" class="noitaRunePixel checked"></div></td>
+						<td><div id="C4" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="C5" class="noitaRunePixel unchecked"></div></td>
+					</tr>
+					<tr>
+						<td><div id="D1" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="D2" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="D3" class="noitaRunePixel checked"></div></td>
+						<td><div id="D4" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="D5" class="noitaRunePixel checked"></div></td>
+					</tr>
+					<tr>
+						<td><div id="E1" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="E2" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="E3" class="noitaRunePixel checked"></div></td>
+						<td><div id="E4" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="E5" class="noitaRunePixel unchecked"></div></td>
+					</tr>
+					<tr>
+						<td><div id="F1" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="F2" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="F3" class="noitaRunePixel checked"></div></td>
+						<td><div id="F4" class="noitaRunePixel unchecked"></div></td>
+						<td><div id="F5" class="noitaRunePixel checked"></div></td>
+					</tr>
+				</table>
+			</div>
+			</br>
+			<table>
+				<tr>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeA" onclick="document.getElementById('RunesToText').value += 'A';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeB" onclick="document.getElementById('RunesToText').value += 'B';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeC" onclick="document.getElementById('RunesToText').value += 'C';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeD" onclick="document.getElementById('RunesToText').value += 'D';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeE" onclick="document.getElementById('RunesToText').value += 'E';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeF" onclick="document.getElementById('RunesToText').value += 'F';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeG" onclick="document.getElementById('RunesToText').value += 'G';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeH" onclick="document.getElementById('RunesToText').value += 'H';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeI" onclick="document.getElementById('RunesToText').value += 'I';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeJ" onclick="document.getElementById('RunesToText').value += 'J';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeK" onclick="document.getElementById('RunesToText').value += 'K';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeL" onclick="document.getElementById('RunesToText').value += 'L';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeM" onclick="document.getElementById('RunesToText').value += 'M';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeN" onclick="document.getElementById('RunesToText').value += 'N';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeO" onclick="document.getElementById('RunesToText').value += 'O';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeP" onclick="document.getElementById('RunesToText').value += 'P';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeQ" onclick="document.getElementById('RunesToText').value += 'Q';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeR" onclick="document.getElementById('RunesToText').value += 'R';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeS" onclick="document.getElementById('RunesToText').value += 'S';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeT" onclick="document.getElementById('RunesToText').value += 'T';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeU" onclick="document.getElementById('RunesToText').value += 'U';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeV" onclick="document.getElementById('RunesToText').value += 'V';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeW" onclick="document.getElementById('RunesToText').value += 'W';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeX" onclick="document.getElementById('RunesToText').value += 'X';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeY" onclick="document.getElementById('RunesToText').value += 'Y';"></img></td>
+					<td><img src="empty.gif" width="1" height="1" class="noitaRune runeZ" onclick="document.getElementById('RunesToText').value += 'Z';"></img></td>
+				</tr>
+				<tr>
+					<td><div class="noitaRune">A</div></td>
+					<td><div class="noitaRune">B</div></td>
+					<td><div class="noitaRune">C</div></td>
+					<td><div class="noitaRune">D</div></td>
+					<td><div class="noitaRune">E</div></td>
+					<td><div class="noitaRune">F</div></td>
+					<td><div class="noitaRune">G</div></td>
+					<td><div class="noitaRune">H</div></td>
+					<td><div class="noitaRune">I</div></td>
+					<td><div class="noitaRune">J</div></td>
+					<td><div class="noitaRune">K</div></td>
+					<td><div class="noitaRune">L</div></td>
+					<td><div class="noitaRune">M</div></td>
+					<td><div class="noitaRune">N</div></td>
+					<td><div class="noitaRune">O</div></td>
+					<td><div class="noitaRune">P</div></td>
+					<td><div class="noitaRune">Q</div></td>
+					<td><div class="noitaRune">R</div></td>
+					<td><div class="noitaRune">S</div></td>
+					<td><div class="noitaRune">T</div></td>
+					<td><div class="noitaRune">U</div></td>
+					<td><div class="noitaRune">V</div></td>
+					<td><div class="noitaRune">W</div></td>
+					<td><div class="noitaRune">X</div></td>
+					<td><div class="noitaRune">Y</div></td>
+					<td><div class="noitaRune">Z</div></td>
+				</tr>
+			</table>
+			
+			
+			</br>
+			<p>Text to Runes : <input id="TextToRunes" type="text" onkeydown="if (event.keyCode == 13)translateToRunes(textAsRune.value);"> <button id="setRune">Translate</button><button id="clear">Clear</button></p>
+			<table id="runesParent">
+			</table>
+		 
+		
+		</div>
+		
+		
+		
+		
+		
+	</div>
+
+
+	</body>
+</html>
+		<script>
+			// translate drawn rune to text box
+			const getRuneDrawing = document.getElementById('getRuneDrawing'); getRuneDrawing.addEventListener('mousedown', function handleClick(event){ getRune(); });
+			const runeAsText = document.getElementById('RunesToText'); // define text box to write to
+			const textAsRune = document.getElementById('TextToRunes'); // define user input text box
+			const runesParent = document.getElementById('runesParent'); // define runes parent
+			const translateBtn = document.getElementById('setRune'); translateBtn.addEventListener('click', function handleClick(event){ translateToRunes(textAsRune.value); });
+			const clearBtn = document.getElementById('clear'); clearBtn.addEventListener('click', function handleClick(event){ runesParent.innerHTML = ''; });
+			
+			
+			
+			
+			
+			
+			
+			
+			const A1 = {element:document.getElementById('A1'), isChecked: document.getElementById('A1').classList.contains('checked')}; A1.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+A1.isChecked); if(A1.isChecked){A1.isChecked = false; A1.element.classList.add('unchecked'); A1.element.classList.remove('checked');}else{A1.isChecked = true; A1.element.classList.add('checked'); A1.element.classList.remove('unchecked');}});
+			const A2 = {element:document.getElementById('A2'), isChecked: document.getElementById('A2').classList.contains('checked')}; A2.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+A2.isChecked); if(A2.isChecked){A2.isChecked = false; A2.element.classList.add('unchecked'); A2.element.classList.remove('checked');}else{A2.isChecked = true; A2.element.classList.add('checked'); A2.element.classList.remove('unchecked');}});
+			const A3 = {element:document.getElementById('A3'), isChecked: document.getElementById('A3').classList.contains('checked')}; A3.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+A3.isChecked); if(A3.isChecked){A3.isChecked = false; A3.element.classList.add('unchecked'); A3.element.classList.remove('checked');}else{A3.isChecked = true; A3.element.classList.add('checked'); A3.element.classList.remove('unchecked');}});
+			const A4 = {element:document.getElementById('A4'), isChecked: document.getElementById('A4').classList.contains('checked')}; A4.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+A4.isChecked); if(A4.isChecked){A4.isChecked = false; A4.element.classList.add('unchecked'); A4.element.classList.remove('checked');}else{A4.isChecked = true; A4.element.classList.add('checked'); A4.element.classList.remove('unchecked');}});
+			const A5 = {element:document.getElementById('A5'), isChecked: document.getElementById('A5').classList.contains('checked')}; A5.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+A5.isChecked); if(A5.isChecked){A5.isChecked = false; A5.element.classList.add('unchecked'); A5.element.classList.remove('checked');}else{A5.isChecked = true; A5.element.classList.add('checked'); A5.element.classList.remove('unchecked');}});
+			const B1 = {element:document.getElementById('B1'), isChecked: document.getElementById('B1').classList.contains('checked')}; B1.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+B1.isChecked); if(B1.isChecked){B1.isChecked = false; B1.element.classList.add('unchecked'); B1.element.classList.remove('checked');}else{B1.isChecked = true; B1.element.classList.add('checked'); B1.element.classList.remove('unchecked');}});
+			const B2 = {element:document.getElementById('B2'), isChecked: document.getElementById('B2').classList.contains('checked')}; B2.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+B2.isChecked); if(B2.isChecked){B2.isChecked = false; B2.element.classList.add('unchecked'); B2.element.classList.remove('checked');}else{B2.isChecked = true; B2.element.classList.add('checked'); B2.element.classList.remove('unchecked');}});
+			const B3 = {element:document.getElementById('B3'), isChecked: document.getElementById('B3').classList.contains('checked')}; B3.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+B3.isChecked); if(B3.isChecked){B3.isChecked = false; B3.element.classList.add('unchecked'); B3.element.classList.remove('checked');}else{B3.isChecked = true; B3.element.classList.add('checked'); B3.element.classList.remove('unchecked');}});
+			const B4 = {element:document.getElementById('B4'), isChecked: document.getElementById('B4').classList.contains('checked')}; B4.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+B4.isChecked); if(B4.isChecked){B4.isChecked = false; B4.element.classList.add('unchecked'); B4.element.classList.remove('checked');}else{B4.isChecked = true; B4.element.classList.add('checked'); B4.element.classList.remove('unchecked');}});
+			const B5 = {element:document.getElementById('B5'), isChecked: document.getElementById('B5').classList.contains('checked')}; B5.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+B5.isChecked); if(B5.isChecked){B5.isChecked = false; B5.element.classList.add('unchecked'); B5.element.classList.remove('checked');}else{B5.isChecked = true; B5.element.classList.add('checked'); B5.element.classList.remove('unchecked');}});
+			const C1 = {element:document.getElementById('C1'), isChecked: document.getElementById('C1').classList.contains('checked')}; C1.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+C1.isChecked); if(C1.isChecked){C1.isChecked = false; C1.element.classList.add('unchecked'); C1.element.classList.remove('checked');}else{C1.isChecked = true; C1.element.classList.add('checked'); C1.element.classList.remove('unchecked');}});
+			const C2 = {element:document.getElementById('C2'), isChecked: document.getElementById('C2').classList.contains('checked')}; C2.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+C2.isChecked); if(C2.isChecked){C2.isChecked = false; C2.element.classList.add('unchecked'); C2.element.classList.remove('checked');}else{C2.isChecked = true; C2.element.classList.add('checked'); C2.element.classList.remove('unchecked');}});
+			const C3 = {element:document.getElementById('C3'), isChecked: document.getElementById('C3').classList.contains('checked')}; C3.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+C3.isChecked); if(C3.isChecked){C3.isChecked = false; C3.element.classList.add('unchecked'); C3.element.classList.remove('checked');}else{C3.isChecked = true; C3.element.classList.add('checked'); C3.element.classList.remove('unchecked');}});
+			const C4 = {element:document.getElementById('C4'), isChecked: document.getElementById('C4').classList.contains('checked')}; C4.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+C4.isChecked); if(C4.isChecked){C4.isChecked = false; C4.element.classList.add('unchecked'); C4.element.classList.remove('checked');}else{C4.isChecked = true; C4.element.classList.add('checked'); C4.element.classList.remove('unchecked');}});
+			const C5 = {element:document.getElementById('C5'), isChecked: document.getElementById('C5').classList.contains('checked')}; C5.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+C5.isChecked); if(C5.isChecked){C5.isChecked = false; C5.element.classList.add('unchecked'); C5.element.classList.remove('checked');}else{C5.isChecked = true; C5.element.classList.add('checked'); C5.element.classList.remove('unchecked');}});
+			const D1 = {element:document.getElementById('D1'), isChecked: document.getElementById('D1').classList.contains('checked')}; D1.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+D1.isChecked); if(D1.isChecked){D1.isChecked = false; D1.element.classList.add('unchecked'); D1.element.classList.remove('checked');}else{D1.isChecked = true; D1.element.classList.add('checked'); D1.element.classList.remove('unchecked');}});
+			const D2 = {element:document.getElementById('D2'), isChecked: document.getElementById('D2').classList.contains('checked')}; D2.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+D2.isChecked); if(D2.isChecked){D2.isChecked = false; D2.element.classList.add('unchecked'); D2.element.classList.remove('checked');}else{D2.isChecked = true; D2.element.classList.add('checked'); D2.element.classList.remove('unchecked');}});
+			const D3 = {element:document.getElementById('D3'), isChecked: document.getElementById('D3').classList.contains('checked')}; D3.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+D3.isChecked); if(D3.isChecked){D3.isChecked = false; D3.element.classList.add('unchecked'); D3.element.classList.remove('checked');}else{D3.isChecked = true; D3.element.classList.add('checked'); D3.element.classList.remove('unchecked');}});
+			const D4 = {element:document.getElementById('D4'), isChecked: document.getElementById('D4').classList.contains('checked')}; D4.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+D4.isChecked); if(D4.isChecked){D4.isChecked = false; D4.element.classList.add('unchecked'); D4.element.classList.remove('checked');}else{D4.isChecked = true; D4.element.classList.add('checked'); D4.element.classList.remove('unchecked');}});
+			const D5 = {element:document.getElementById('D5'), isChecked: document.getElementById('D5').classList.contains('checked')}; D5.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+D5.isChecked); if(D5.isChecked){D5.isChecked = false; D5.element.classList.add('unchecked'); D5.element.classList.remove('checked');}else{D5.isChecked = true; D5.element.classList.add('checked'); D5.element.classList.remove('unchecked');}});
+			const E1 = {element:document.getElementById('E1'), isChecked: document.getElementById('E1').classList.contains('checked')}; E1.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+E1.isChecked); if(E1.isChecked){E1.isChecked = false; E1.element.classList.add('unchecked'); E1.element.classList.remove('checked');}else{E1.isChecked = true; E1.element.classList.add('checked'); E1.element.classList.remove('unchecked');}});
+			const E2 = {element:document.getElementById('E2'), isChecked: document.getElementById('E2').classList.contains('checked')}; E2.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+E2.isChecked); if(E2.isChecked){E2.isChecked = false; E2.element.classList.add('unchecked'); E2.element.classList.remove('checked');}else{E2.isChecked = true; E2.element.classList.add('checked'); E2.element.classList.remove('unchecked');}});
+			const E3 = {element:document.getElementById('E3'), isChecked: document.getElementById('E3').classList.contains('checked')}; E3.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+E3.isChecked); if(E3.isChecked){E3.isChecked = false; E3.element.classList.add('unchecked'); E3.element.classList.remove('checked');}else{E3.isChecked = true; E3.element.classList.add('checked'); E3.element.classList.remove('unchecked');}});
+			const E4 = {element:document.getElementById('E4'), isChecked: document.getElementById('E4').classList.contains('checked')}; E4.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+E4.isChecked); if(E4.isChecked){E4.isChecked = false; E4.element.classList.add('unchecked'); E4.element.classList.remove('checked');}else{E4.isChecked = true; E4.element.classList.add('checked'); E4.element.classList.remove('unchecked');}});
+			const E5 = {element:document.getElementById('E5'), isChecked: document.getElementById('E5').classList.contains('checked')}; E5.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+E5.isChecked); if(E5.isChecked){E5.isChecked = false; E5.element.classList.add('unchecked'); E5.element.classList.remove('checked');}else{E5.isChecked = true; E5.element.classList.add('checked'); E5.element.classList.remove('unchecked');}});
+			const F1 = {element:document.getElementById('F1'), isChecked: document.getElementById('F1').classList.contains('checked')}; F1.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+F1.isChecked); if(F1.isChecked){F1.isChecked = false; F1.element.classList.add('unchecked'); F1.element.classList.remove('checked');}else{F1.isChecked = true; F1.element.classList.add('checked'); F1.element.classList.remove('unchecked');}});
+			const F2 = {element:document.getElementById('F2'), isChecked: document.getElementById('F2').classList.contains('checked')}; F2.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+F2.isChecked); if(F2.isChecked){F2.isChecked = false; F2.element.classList.add('unchecked'); F2.element.classList.remove('checked');}else{F2.isChecked = true; F2.element.classList.add('checked'); F2.element.classList.remove('unchecked');}});
+			const F3 = {element:document.getElementById('F3'), isChecked: document.getElementById('F3').classList.contains('checked')}; F3.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+F3.isChecked); if(F3.isChecked){F3.isChecked = false; F3.element.classList.add('unchecked'); F3.element.classList.remove('checked');}else{F3.isChecked = true; F3.element.classList.add('checked'); F3.element.classList.remove('unchecked');}});
+			const F4 = {element:document.getElementById('F4'), isChecked: document.getElementById('F4').classList.contains('checked')}; F4.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+F4.isChecked); if(F4.isChecked){F4.isChecked = false; F4.element.classList.add('unchecked'); F4.element.classList.remove('checked');}else{F4.isChecked = true; F4.element.classList.add('checked'); F4.element.classList.remove('unchecked');}});
+			const F5 = {element:document.getElementById('F5'), isChecked: document.getElementById('F5').classList.contains('checked')}; F5.element.addEventListener('mousedown', function handleClick(event){ console.log('changed to '+F5.isChecked); if(F5.isChecked){F5.isChecked = false; F5.element.classList.add('unchecked'); F5.element.classList.remove('checked');}else{F5.isChecked = true; F5.element.classList.add('checked'); F5.element.classList.remove('unchecked');}});
+			
+			
+			
+			function getCharAt(char){
+				var letters = /^[A-Z]*$/;
+				if(char.match(letters))
+				{
+					return char;
+				}
+				else
+				{
+					return '';
+				}
+			}
+			
+			function translateToRunes(inputtxt){
+			//<td><img src="empty.gif" width="1" height="1" class="noitaRune runeA"></img></td>
+				let j = 0;
+				let tr = document.createElement("tr");
+				runesParent.appendChild(tr);
+				for (let i = 0; i < inputtxt.length; i++) {
+					// add tr every 26 i's
+					if(i % 26 == 0){
+						const tr2 = document.createElement("tr");
+						tr = tr2;
+						runesParent.appendChild(tr);
+					}
+					
+					const td = document.createElement("td");
+					const img = document.createElement("img");
+					img.src = "empty.gif";
+					img.width = "1";
+					img.height = "1";
+					img.classList.add('noitaText');
+					img.classList.add('rune'+getCharAt(inputtxt.toUpperCase().charAt(i)));
+					td.appendChild(img);
+					tr.appendChild(td);
+				}
+				let space = document.createElement("br");
+				runesParent.appendChild(space);
+			}
+			
+			
+			
+			function isRuneA(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == false) && (A3.isChecked == true) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == false) && (B2.isChecked == false) && (B3.isChecked == true) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == true) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == false) && (D5.isChecked == true) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == false) && (F3.isChecked == true) && (F4.isChecked == false) && (F5.isChecked == true)
+				){result = true;}
+				return result;
+			}
+			function isRuneB(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == true) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == true) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == true) &&
+					(D1.isChecked == false) && (D2.isChecked == true) && (D3.isChecked == true) && (D4.isChecked == true) && (D5.isChecked == true) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == false) && (E4.isChecked == false) && (E5.isChecked == true) &&
+					(F1.isChecked == false) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == true)
+				){result = true;}
+				return result;
+			}
+			function isRuneC(){
+				let result = false;
+				if(
+					(A1.isChecked == false) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == true) && (A5.isChecked == true) &&
+					(B1.isChecked == false) && (B2.isChecked == false) && (B3.isChecked == true) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == false) && (C2.isChecked == true) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == false) && (E4.isChecked == true) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == true) && (F3.isChecked == true) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneD(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == true) && (A3.isChecked == true) && (A4.isChecked == true) && (A5.isChecked == true) &&
+					(B1.isChecked == false) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == true) &&
+					(C1.isChecked == false) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == true) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == false) && (D4.isChecked == true) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == true) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == true)
+				){result = true;}
+				return result;
+			}
+			function isRuneE(){
+				let result = false;
+				if(
+					(A1.isChecked == false) && (A2.isChecked == false) && (A3.isChecked == true) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == false) && (B2.isChecked == true) && (B3.isChecked == false) && (B4.isChecked == true) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == true) &&
+					(D1.isChecked == true) && (D2.isChecked == false) && (D3.isChecked == false) && (D4.isChecked == false) && (D5.isChecked == true) &&
+					(E1.isChecked == false) && (E2.isChecked == true) && (E3.isChecked == false) && (E4.isChecked == true) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == false) && (F3.isChecked == true) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneF(){
+				let result = false;
+				if((
+					(A1.isChecked == false) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == true) && (A5.isChecked == false) &&
+					(B1.isChecked == false) && (B2.isChecked == false) && (B3.isChecked == true) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == false) && (C2.isChecked == true) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == true) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == true) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == true) && (F5.isChecked == false)
+				)||(
+					(A1.isChecked == false) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == true) &&
+					(B1.isChecked == false) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == true) && (B5.isChecked == false) &&
+					(C1.isChecked == false) && (C2.isChecked == false) && (C3.isChecked == true) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == true) && (D3.isChecked == false) && (D4.isChecked == true) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == true) && (E3.isChecked == false) && (E4.isChecked == true) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == true) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == true)
+				)){result = true;}
+				return result;
+			}
+			function isRuneG(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == true) &&
+					(B1.isChecked == false) && (B2.isChecked == true) && (B3.isChecked == false) && (B4.isChecked == true) && (B5.isChecked == false) &&
+					(C1.isChecked == false) && (C2.isChecked == false) && (C3.isChecked == true) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == true) && (D3.isChecked == false) && (D4.isChecked == true) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == true) && (E3.isChecked == false) && (E4.isChecked == true) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == false) && (F3.isChecked == true) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneH(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == true) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == true) && (B4.isChecked == false) && (B5.isChecked == true) &&
+					(C1.isChecked == true) && (C2.isChecked == true) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == true) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == false) && (D5.isChecked == true) &&
+					(E1.isChecked == true) && (E2.isChecked == false) && (E3.isChecked == false) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneI(){
+				let result = false;
+				if((
+					(A1.isChecked == false) && (A2.isChecked == true) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == false) && (B2.isChecked == true) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == false) && (C2.isChecked == true) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == false) && (E4.isChecked == true) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == true) && (F3.isChecked == true) && (F4.isChecked == true) && (F5.isChecked == false)
+				)||(
+					(A1.isChecked == false) && (A2.isChecked == false) && (A3.isChecked == true) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == false) && (B2.isChecked == false) && (B3.isChecked == true) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == false) && (C2.isChecked == false) && (C3.isChecked == true) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == false) && (D4.isChecked == true) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == false) && (E4.isChecked == false) && (E5.isChecked == true) &&
+					(F1.isChecked == false) && (F2.isChecked == true) && (F3.isChecked == true) && (F4.isChecked == true) && (F5.isChecked == true)
+				)){result = true;}
+				return result;
+			}
+			function isRuneJ(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == true) && (A3.isChecked == true) && (A4.isChecked == true) && (A5.isChecked == true) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == true) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == true) && (D5.isChecked == false) &&
+					(E1.isChecked == true) && (E2.isChecked == true) && (E3.isChecked == false) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneK(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == true) && (B2.isChecked == true) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == true) && (C4.isChecked == true) && (C5.isChecked == true) &&
+					(D1.isChecked == true) && (D2.isChecked == true) && (D3.isChecked == false) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == true) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == true) && (E5.isChecked == true) &&
+					(F1.isChecked == true) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneL(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == true) &&
+					(B1.isChecked == true) && (B2.isChecked == true) && (B3.isChecked == true) && (B4.isChecked == true) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == true) && (D2.isChecked == false) && (D3.isChecked == false) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == true) && (E2.isChecked == false) && (E3.isChecked == false) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneM(){
+				let result = false;
+				if(
+					(A1.isChecked == false) && (A2.isChecked == true) && (A3.isChecked == true) && (A4.isChecked == true) && (A5.isChecked == false) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == true) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == true) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == true) && (D3.isChecked == false) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == true) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneN(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == true) && (A3.isChecked == true) && (A4.isChecked == true) && (A5.isChecked == true) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == true) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == true) &&
+					(D1.isChecked == true) && (D2.isChecked == false) && (D3.isChecked == false) && (D4.isChecked == true) && (D5.isChecked == false) &&
+					(E1.isChecked == true) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneO(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == true) && (C5.isChecked == false) &&
+					(D1.isChecked == true) && (D2.isChecked == false) && (D3.isChecked == false) && (D4.isChecked == false) && (D5.isChecked == true) &&
+					(E1.isChecked == true) && (E2.isChecked == false) && (E3.isChecked == false) && (E4.isChecked == false) && (E5.isChecked == true) &&
+					(F1.isChecked == false) && (F2.isChecked == true) && (F3.isChecked == true) && (F4.isChecked == true) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneP(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == true) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == true) &&
+					(C1.isChecked == false) && (C2.isChecked == true) && (C3.isChecked == false) && (C4.isChecked == true) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == true) && (E3.isChecked == false) && (E4.isChecked == true) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == true)
+				){result = true;}
+				return result;
+			}
+			function isRuneQ(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == true) && (D2.isChecked == false) && (D3.isChecked == false) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == true) && (E2.isChecked == false) && (E3.isChecked == false) && (E4.isChecked == false) && (E5.isChecked == true) &&
+					(F1.isChecked == true) && (F2.isChecked == true) && (F3.isChecked == true) && (F4.isChecked == true) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneR(){
+				let result = false;
+				if(
+					(A1.isChecked == false) && (A2.isChecked == false) && (A3.isChecked == true) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == false) && (B2.isChecked == true) && (B3.isChecked == true) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == true) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == true) &&
+					(F1.isChecked == false) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == true) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneS(){
+				let result = false;
+				if(
+					(A1.isChecked == false) && (A2.isChecked == false) && (A3.isChecked == true) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == false) && (B2.isChecked == true) && (B3.isChecked == true) && (B4.isChecked == true) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == true) && (C4.isChecked == false) && (C5.isChecked == true) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == false) && (F3.isChecked == true) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneT(){
+				let result = false;
+				if((
+					(A1.isChecked == false) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == true) && (A5.isChecked == false) &&
+					(B1.isChecked == false) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == true) && (B5.isChecked == false) &&
+					(C1.isChecked == false) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == true) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == true) && (D3.isChecked == true) && (D4.isChecked == true) && (D5.isChecked == false) &&
+					(E1.isChecked == true) && (E2.isChecked == false) && (E3.isChecked == false) && (E4.isChecked == true) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == true) && (F3.isChecked == true) && (F4.isChecked == false) && (F5.isChecked == false)
+				)||(
+					(A1.isChecked == false) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == true) &&
+					(B1.isChecked == false) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == true) &&
+					(C1.isChecked == false) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == true) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == true) && (D5.isChecked == true) &&
+					(E1.isChecked == false) && (E2.isChecked == true) && (E3.isChecked == false) && (E4.isChecked == false) && (E5.isChecked == true) &&
+					(F1.isChecked == false) && (F2.isChecked == false) && (F3.isChecked == true) && (F4.isChecked == true) && (F5.isChecked == false)
+				)){result = true;}
+				return result;
+			}
+			function isRuneU(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == true) && (D3.isChecked == false) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == true) && (F5.isChecked == true)
+				){result = true;}
+				return result;
+			}
+			function isRuneV(){
+				let result = false;
+				if(
+					(A1.isChecked == false) && (A2.isChecked == true) && (A3.isChecked == true) && (A4.isChecked == true) && (A5.isChecked == false) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == true) &&
+					(C1.isChecked == false) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == true) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == true) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == false) && (F3.isChecked == true) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneW(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == false) && (A3.isChecked == false) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == false) && (B2.isChecked == true) && (B3.isChecked == false) && (B4.isChecked == true) && (B5.isChecked == false) &&
+					(C1.isChecked == false) && (C2.isChecked == false) && (C3.isChecked == true) && (C4.isChecked == true) && (C5.isChecked == true) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == false) && (D4.isChecked == true) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == true) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneX(){
+				let result = false;
+				if(
+					(A1.isChecked == true) && (A2.isChecked == true) && (A3.isChecked == true) && (A4.isChecked == true) && (A5.isChecked == true) &&
+					(B1.isChecked == false) && (B2.isChecked == true) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == false) && (C2.isChecked == false) && (C3.isChecked == true) && (C4.isChecked == false) && (C5.isChecked == false) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == true) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == true) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneY(){
+				let result = false;
+				if(
+					(A1.isChecked == false) && (A2.isChecked == true) && (A3.isChecked == true) && (A4.isChecked == true) && (A5.isChecked == false) &&
+					(B1.isChecked == true) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == true) &&
+					(C1.isChecked == true) && (C2.isChecked == false) && (C3.isChecked == false) && (C4.isChecked == false) && (C5.isChecked == true) &&
+					(D1.isChecked == false) && (D2.isChecked == false) && (D3.isChecked == false) && (D4.isChecked == true) && (D5.isChecked == false) &&
+					(E1.isChecked == false) && (E2.isChecked == false) && (E3.isChecked == true) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == false) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == true) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			function isRuneZ(){
+				let result = false;
+				if(
+					(A1.isChecked == false) && (A2.isChecked == false) && (A3.isChecked == true) && (A4.isChecked == false) && (A5.isChecked == false) &&
+					(B1.isChecked == false) && (B2.isChecked == false) && (B3.isChecked == false) && (B4.isChecked == false) && (B5.isChecked == false) &&
+					(C1.isChecked == true) && (C2.isChecked == true) && (C3.isChecked == true) && (C4.isChecked == true) && (C5.isChecked == true) &&
+					(D1.isChecked == true) && (D2.isChecked == false) && (D3.isChecked == false) && (D4.isChecked == false) && (D5.isChecked == false) &&
+					(E1.isChecked == true) && (E2.isChecked == false) && (E3.isChecked == false) && (E4.isChecked == false) && (E5.isChecked == false) &&
+					(F1.isChecked == true) && (F2.isChecked == false) && (F3.isChecked == false) && (F4.isChecked == false) && (F5.isChecked == false)
+				){result = true;}
+				return result;
+			}
+			
+			
+			function getRune(){
+				if(isRuneA()){runeAsText.value = runeAsText.value+'A';}
+				if(isRuneB()){runeAsText.value = runeAsText.value+'B';}
+				if(isRuneC()){runeAsText.value = runeAsText.value+'C';}
+				if(isRuneD()){runeAsText.value = runeAsText.value+'D';}
+				if(isRuneE()){runeAsText.value = runeAsText.value+'E';}
+				if(isRuneF()){runeAsText.value = runeAsText.value+'F';}
+				if(isRuneG()){runeAsText.value = runeAsText.value+'G';}
+				if(isRuneH()){runeAsText.value = runeAsText.value+'H';}
+				if(isRuneI()){runeAsText.value = runeAsText.value+'I';}
+				if(isRuneJ()){runeAsText.value = runeAsText.value+'J';}
+				if(isRuneK()){runeAsText.value = runeAsText.value+'K';}
+				if(isRuneL()){runeAsText.value = runeAsText.value+'L';}
+				if(isRuneM()){runeAsText.value = runeAsText.value+'M';}
+				if(isRuneN()){runeAsText.value = runeAsText.value+'N';}
+				if(isRuneO()){runeAsText.value = runeAsText.value+'O';}
+				if(isRuneP()){runeAsText.value = runeAsText.value+'P';}
+				if(isRuneQ()){runeAsText.value = runeAsText.value+'Q';}
+				if(isRuneR()){runeAsText.value = runeAsText.value+'R';}
+				if(isRuneS()){runeAsText.value = runeAsText.value+'S';}
+				if(isRuneT()){runeAsText.value = runeAsText.value+'T';}
+				if(isRuneU()){runeAsText.value = runeAsText.value+'U';}
+				if(isRuneV()){runeAsText.value = runeAsText.value+'V';}
+				if(isRuneW()){runeAsText.value = runeAsText.value+'W';}
+				if(isRuneX()){runeAsText.value = runeAsText.value+'X';}
+				if(isRuneY()){runeAsText.value = runeAsText.value+'Y';}
+				if(isRuneZ()){runeAsText.value = runeAsText.value+'Z';}
+			}
+			
+			/*function setRune(a1,a2,a3,a4,a5,b1,b2,b3,b4,b5,c1,c2,c3,c4,c5,d1,d2,d3,d4,d5,e1,e2,e3,e4,e5,f1,f2,f3,f4,f5){
+				A1.isChecked = a1;
+				A2.isChecked = a2;
+				A3.isChecked = a3;
+				A4.isChecked = a4;
+				A5.isChecked = a5;
+				B1.isChecked = b1;
+				B2.isChecked = b2;
+				B3.isChecked = b3;
+				B4.isChecked = b4;
+				B5.isChecked = b5;
+				C1.isChecked = c1;
+				C2.isChecked = c2;
+				C3.isChecked = c3;
+				C4.isChecked = c4;
+				C5.isChecked = c5;
+				D1.isChecked = d1;
+				D2.isChecked = d2;
+				D3.isChecked = d3;
+				D4.isChecked = d4;
+				D5.isChecked = d5;
+				E1.isChecked = e1;
+				E2.isChecked = e2;
+				E3.isChecked = e3;
+				E4.isChecked = e4;
+				E5.isChecked = e5;
+				F1.isChecked = f1;
+				F2.isChecked = f2;
+				F3.isChecked = f3;
+				F4.isChecked = f4;
+				F5.isChecked = f5;
+			}*/
+		</script>
